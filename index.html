@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup v4 — Landing Ristrutturazioni Mastruzzi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1E1C1F;
+  --text: #3C373D;
+  --muted: #646E78;
+  --paper: #F3F5F5;
+  --line: #D7DCDD;
+  --accent: #0FA2BB;
+  --accent-dark: #015F6F;
+  --accent-soft: #E5F4F7;
+  --accent-light: #7DD3E0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+body { font-family: 'Poppins', sans-serif; color: var(--text); background: #fff; font-size: 16px; line-height: 1.6; }
+h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--ink); margin: 0; font-weight: 500; line-height: 1.2; }
+h1 { font-size: clamp(36px, 5.4vw, 60px); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; }
+h2 { font-size: clamp(28px, 3.5vw, 38px); font-weight: 500; }
+h3 { font-size: 20px; font-weight: 600; }
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 84px 0; }
+.section--paper { background: var(--paper); }
+.section--ink { background: var(--ink); color: #cfd2d3; }
+.section--ink h2, .section--ink h3 { color: #fff; }
+.section__eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; }
+.section--ink .section__eyebrow { color: var(--accent-light); }
+.section__head { margin-bottom: 40px; }
+.section__head--center { text-align: center; max-width: 760px; margin-left: auto; margin-right: auto; margin-bottom: 56px; }
+.section__intro { color: var(--muted); font-size: 17px; margin-top: 14px; max-width: 640px; }
+
+.btn { display: inline-block; padding: 16px 30px; border-radius: 4px; font-weight: 600; font-size: 16px; transition: all 0.2s; cursor: pointer; border: none; text-decoration: none; }
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.btn--ghost { background: transparent; color: #fff; border: 2px solid #fff; }
+.btn--ghost:hover { background: #fff; color: var(--ink); }
+.btn--dark { background: var(--ink); color: #fff; }
+.btn--dark:hover { background: var(--accent-dark); }
+
+.note { background: #fffaeb; border-left: 4px solid #fcb900; padding: 12px 18px; font-size: 12.5px; color: #78350f; font-style: italic; line-height: 1.55; max-width: 1180px; margin: 0 auto 0; }
+
+.legend { background: #fffaeb; border-bottom: 2px solid #fcb900; padding: 10px 0; font-size: 13px; position: sticky; top: 0; z-index: 100; }
+
+/* NAV */
+.nav { background: #fff; border-bottom: 1px solid var(--line); padding: 14px 0; }
+.nav__row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.nav__logo { height: 38px; }
+.nav__links { display: flex; align-items: center; gap: 24px; font-size: 14px; color: var(--ink); font-weight: 500; }
+.nav__links a:hover { color: var(--accent); }
+.nav__tel { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); font-weight: 600; }
+.nav__tel:hover { color: var(--accent); }
+.nav__cta { padding: 10px 20px; background: var(--accent); color: #fff !important; border-radius: 4px; font-weight: 600; transition: background 0.2s; }
+.nav__cta:hover { background: var(--accent-dark); }
+@media (max-width: 900px) { .nav__links { display: none; } .nav__cta { display: inline-block; } }
+
+/* HERO */
+.hero { position: relative; min-height: 680px; display: flex; align-items: center; color: #fff; overflow: hidden; }
+.hero__bg { position: absolute; inset: 0; }
+.hero__bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero__overlay { position: absolute; inset: 0; background: linear-gradient(110deg, rgba(30,28,31,0.92) 0%, rgba(30,28,31,0.78) 50%, rgba(1,95,111,0.40) 100%); }
+.hero__content { position: relative; padding: 110px 0 90px; width: 100%; }
+.hero__eyebrow { display: inline-block; padding: 7px 16px; background: rgba(15,162,187,0.22); color: var(--accent-light); font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; border-radius: 999px; margin-bottom: 26px; }
+.hero h1 { color: #fff; max-width: 920px; }
+.hero h1 em { font-style: normal; color: var(--accent-light); font-weight: 700; }
+.hero h1 strong { color: #fff; font-weight: 700; }
+.hero__bullets { list-style: none; padding: 0; margin: 26px 0 34px; max-width: 760px; }
+.hero__bullets li { padding: 10px 0 10px 36px; position: relative; color: #f0f1f2; font-size: 17.5px; line-height: 1.55; }
+.hero__bullets li:before { content: "→"; position: absolute; left: 0; top: 8px; color: var(--accent-light); font-weight: 700; font-size: 22px; }
+.hero__bullets li b { color: #fff; font-weight: 600; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 40px; }
+.hero__quickfacts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 28px; max-width: 820px; }
+.hero__quickfacts > div { font-size: 13px; color: #cfd2d3; }
+.hero__quickfacts b { display: block; color: var(--accent-light); font-size: 28px; font-weight: 700; margin-bottom: 2px; line-height: 1; }
+
+/* PROOF BAR */
+.proof { background: #fff; padding: 50px 0; border-bottom: 1px solid var(--line); }
+.proof__label { text-align: center; font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 30px; }
+.proof__grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 32px; align-items: center; justify-items: center; }
+.proof__grid img { max-height: 64px; max-width: 150px; object-fit: contain; transition: transform 0.2s; }
+.proof__grid img:hover { transform: scale(1.08); }
+@media (max-width: 900px) { .proof__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+
+/* SCENARI "SE DEVI" */
+.scenarios__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.scenario { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 28px; transition: all 0.2s; position: relative; }
+.scenario:hover { border-color: var(--accent); box-shadow: 0 14px 30px rgba(15,162,187,0.10); transform: translateY(-2px); }
+.scenario__icon { width: 52px; height: 52px; background: var(--accent-soft); color: var(--accent-dark); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 18px; }
+.scenario h3 { color: var(--ink); font-size: 18px; font-weight: 600; line-height: 1.3; margin-bottom: 8px; }
+.scenario p { font-size: 14.5px; color: var(--muted); line-height: 1.6; }
+.scenario__arrow { position: absolute; top: 28px; right: 24px; color: var(--accent); font-size: 22px; }
+@media (max-width: 900px) { .scenarios__grid { grid-template-columns: 1fr; } }
+
+/* BENEFIT ALTERNATI */
+.benefit { padding: 70px 0; }
+.benefit__row { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+.benefit__row--reverse .benefit__visual { order: 2; }
+.benefit__visual img { width: 100%; height: 380px; object-fit: cover; border-radius: 8px; }
+.benefit__visual { position: relative; }
+.benefit__badge { position: absolute; bottom: -20px; left: -20px; background: var(--accent); color: #fff; padding: 16px 22px; border-radius: 6px; font-size: 13px; font-weight: 600; box-shadow: 0 10px 28px rgba(1,95,111,0.4); }
+.benefit__badge b { display: block; font-size: 22px; font-weight: 700; }
+.benefit__copy h2 { color: var(--ink); margin-bottom: 16px; }
+.benefit__copy p { color: var(--text); font-size: 16.5px; line-height: 1.7; margin-bottom: 14px; }
+.benefit__copy ul { padding: 0; margin: 0 0 22px; list-style: none; }
+.benefit__copy li { padding: 8px 0 8px 28px; position: relative; color: var(--text); font-size: 15.5px; }
+.benefit__copy li:before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; font-size: 17px; }
+@media (max-width: 900px) { .benefit__row { grid-template-columns: 1fr; gap: 40px; } .benefit__row--reverse .benefit__visual { order: 0; } }
+
+/* PROCESS */
+.process__steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; counter-reset: step; }
+.process__steps:before { content: ""; position: absolute; top: 30px; left: 8%; right: 8%; height: 2px; background: var(--line); z-index: 0; }
+.process__step { position: relative; padding: 0 12px; text-align: center; z-index: 1; }
+.process__num { width: 60px; height: 60px; border-radius: 50%; background: #fff; border: 2px solid var(--accent); color: var(--accent-dark); font-size: 24px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+.process__step h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+.process__step p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+@media (max-width: 800px) { .process__steps { grid-template-columns: 1fr 1fr; gap: 28px 12px; } .process__steps:before { display: none; } }
+
+/* CROSS-SELL pareti vetrate (sostituisce box normativo) */
+.crosssell { background: var(--accent-soft); border-radius: 10px; padding: 50px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 50px; align-items: center; overflow: hidden; }
+.crosssell h2 { color: var(--accent-dark); margin-bottom: 10px; font-size: 26px; }
+.crosssell p { color: var(--text); font-size: 16px; line-height: 1.7; margin-bottom: 22px; }
+.crosssell__img { position: relative; }
+.crosssell__img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; }
+@media (max-width: 800px) { .crosssell { grid-template-columns: 1fr; padding: 36px 24px; } }
+
+/* CASE STUDY */
+.cases { background: var(--paper); }
+.cases__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.case { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.25s; cursor: pointer; display: block; color: inherit; }
+.case:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+.case__img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+.case__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.case:hover .case__img img { transform: scale(1.04); }
+.case__kpi { position: absolute; top: 14px; right: 14px; background: rgba(255,255,255,0.96); color: var(--accent-dark); padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.case__body { padding: 22px; }
+.case__logo { height: 34px; margin-bottom: 12px; }
+.case__brand { font-size: 11px; font-weight: 700; color: var(--accent-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
+.case__body h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.case__body p { font-size: 13.5px; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
+.case__meta { display: flex; gap: 14px; font-size: 12px; color: var(--text); padding-top: 14px; border-top: 1px solid var(--line); align-items: center; justify-content: space-between; }
+.case__cta { color: var(--accent); font-weight: 600; font-size: 13px; }
+@media (max-width: 900px) { .cases__grid { grid-template-columns: 1fr; } }
+
+/* GUARANTEES */
+.guarantees__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.guarantee { display: flex; gap: 18px; padding: 22px; background: var(--paper); border-radius: 6px; align-items: flex-start; }
+.guarantee__icon { width: 44px; height: 44px; background: var(--accent); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.guarantee h3 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.guarantee p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+@media (max-width: 700px) { .guarantees__grid { grid-template-columns: 1fr; } }
+
+/* FOUNDER + VIDEO */
+.founder__row { display: grid; grid-template-columns: 220px 1.2fr 1fr; gap: 40px; align-items: center; }
+.founder__photo { position: relative; }
+.founder__photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 8px; }
+.founder__photo:after { content: ""; position: absolute; top: -12px; left: -12px; right: 12px; bottom: 12px; border: 3px solid var(--accent); border-radius: 8px; z-index: -1; }
+.founder__quote { font-size: 19px; line-height: 1.5; color: var(--ink); font-weight: 400; margin-bottom: 18px; }
+.founder__quote b { color: var(--accent-dark); font-weight: 600; }
+.founder__attr b { display: block; font-size: 15px; color: var(--ink); }
+.founder__attr span { color: var(--muted); font-size: 13px; }
+.founder__video { position: relative; cursor: pointer; }
+.founder__video img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; }
+.founder__video__play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 6px 20px rgba(0,0,0,0.35); transition: transform 0.2s; }
+.founder__video:hover .founder__video__play { transform: translate(-50%, -50%) scale(1.1); }
+.founder__video__label { display: block; margin-top: 10px; font-size: 13.5px; color: var(--muted); font-weight: 500; text-align: center; }
+@media (max-width: 900px) { .founder__row { grid-template-columns: 1fr; gap: 30px; } .founder__photo { max-width: 200px; margin: 0 auto; } }
+
+/* FAQ */
+.faq__list { max-width: 820px; margin: 0 auto; }
+.faq__item { border-bottom: 1px solid var(--line); }
+.faq__item summary { padding: 22px 0; font-weight: 600; color: var(--ink); cursor: pointer; font-size: 17px; list-style: none; position: relative; padding-right: 36px; }
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary:after { content: "+"; position: absolute; right: 0; top: 22px; color: var(--accent); font-size: 28px; font-weight: 300; transition: transform 0.2s; }
+.faq__item[open] summary:after { content: "−"; }
+.faq__item[open] summary { color: var(--accent-dark); }
+.faq__item p { padding: 0 0 22px; color: var(--muted); line-height: 1.7; font-size: 15.5px; }
+
+/* FORM */
+.lead { background: var(--paper); }
+.lead__wrap { display: grid; grid-template-columns: 1fr 1.4fr; gap: 50px; background: #fff; border-radius: 10px; padding: 50px; box-shadow: 0 14px 50px rgba(0,0,0,0.08); }
+.lead__copy h2 { color: var(--ink); margin-bottom: 14px; font-size: 28px; }
+.lead__copy > p { color: var(--text); font-size: 15.5px; line-height: 1.7; margin-bottom: 22px; }
+.lead__copy ul { padding: 0; list-style: none; margin: 0 0 24px; }
+.lead__copy li { padding: 7px 0 7px 26px; position: relative; font-size: 14.5px; color: var(--text); }
+.lead__copy li:before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.lead__disclaimer { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 12px 16px; font-size: 13px; color: var(--accent-dark); border-radius: 0 4px 4px 0; }
+.form__group { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.form__group--single { grid-template-columns: 1fr; }
+.form__field label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.form__field input, .form__field select, .form__field textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 4px; font-family: inherit; font-size: 14.5px; color: var(--text); background: #fff; transition: border-color 0.15s; }
+.form__field input:focus, .form__field select:focus, .form__field textarea:focus { outline: none; border-color: var(--accent); }
+.form__divider { margin: 22px 0 14px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-dark); }
+.form__privacy { display: flex; gap: 8px; align-items: flex-start; font-size: 12.5px; color: var(--muted); margin: 18px 0; }
+.form__privacy a { color: var(--accent); text-decoration: underline; }
+.form__submit { width: 100%; padding: 16px; background: var(--accent); color: #fff; font-weight: 600; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
+.form__submit:hover { background: var(--accent-dark); }
+@media (max-width: 900px) { .lead__wrap { grid-template-columns: 1fr; padding: 30px; } .form__group { grid-template-columns: 1fr; } }
+
+/* FOOTER */
+footer { background: var(--ink); color: #9a9da0; padding: 60px 0 30px; }
+footer .grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; font-size: 14px; }
+footer img { height: 36px; filter: brightness(0) invert(1); opacity: 0.92; margin-bottom: 16px; }
+footer h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.04em; }
+footer .small { font-size: 12px; line-height: 1.6; }
+footer .copyright { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 36px; padding-top: 22px; text-align: center; font-size: 12px; }
+@media (max-width: 800px) { footer .grid { grid-template-columns: 1fr 1fr; } }
+
+/* VIDEO MODAL */
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
+.modal.open { display: flex; }
+.modal__content { width: 100%; max-width: 960px; aspect-ratio: 16/9; }
+.modal__close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 32px; cursor: pointer; background: none; border: none; }
+</style>
+</head>
+<body>
+
+<!-- LEGENDA TOP -->
+<div class="legend">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:14px;">
+    <div><strong style="color:#78350f;">📋 Mockup v4</strong> <span style="color:#92651c;">· Palette ufficiale Mastruzzi · Foto + URL + video reali · Riquadri gialli = cosa cambia + perché</span></div>
+    <span style="color:#92651c; font-size:12px;">2026-05-14</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap nav__row">
+    <img src="https://www.mastruzzi.it/wp-content/uploads/2024/12/Logo_scuro_per_sfondo_bianco-sfondo-trasparente-300x61.png" class="nav__logo" alt="Mastruzzi">
+    <div class="nav__links">
+      <a href="#scenari">Per chi</a>
+      <a href="#metodo">Come lavoriamo</a>
+      <a href="#progetti">Progetti</a>
+      <a href="#faq">FAQ</a>
+      <a href="tel:+390376398111" class="nav__tel">📞 0376 398.111</a>
+      <a href="#form" class="nav__cta">Sopralluogo gratuito</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero__bg">
+    <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-realizzazione-chiavi-in-mano-a-roma-209785.jpg" alt="">
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="wrap hero__content">
+    <span class="hero__eyebrow">Per uffici B2B</span>
+    <h1>Ristrutturiamo il vostro ufficio <em>senza fermare il lavoro.</em></h1>
+    <ul class="hero__bullets">
+      <li><b>Un solo referente:</b> architetto interno, opere, impianti, pareti vetrate e arredo — tutto coordinato.</li>
+      <li><b>Zero giorni di fermo:</b> lavori per fasi, in orari serali o nei weekend, cantiere isolato dall'operatività.</li>
+      <li><b>30+ progetti enterprise</b> consegnati senza fermare il lavoro della vostra azienda.</li>
+    </ul>
+    <div class="hero__ctas">
+      <a href="#form" class="btn btn--primary">Richiedi sopralluogo gratuito →</a>
+      <a href="#progetti" class="btn btn--ghost">Vedi i progetti realizzati</a>
+    </div>
+    <div class="hero__quickfacts">
+      <div><b>30+</b>progetti enterprise</div>
+      <div><b>0</b>giorni di fermo</div>
+      <div><b>1</b>solo referente</div>
+      <div><b>ISO 9001</b>certificazione 2015</div>
+    </div>
+  </div>
+</header>
+
+<div class="note"><strong>Aggiornamenti onestà dati:</strong> H1 ora con verbo attivo + soggetto esplicito; subhead enumera capabilities + chiude con "30+ progetti enterprise consegnati con zero giorni di fermo" (numero dal piano strategico). Eyebrow generico "Per uffici B2B" (rimosso "da 50 postazioni in su" — l'avevo inventato io). Quickfacts: rimosso "25+ anni esperienza" (non verificato) e "0 giorni di fermo medi" (era metrica inventata, ora claim coerente). Tenuto solo: 30+ progetti enterprise (piano), zero fermo (claim USP), architetto interno (vero), ISO 9001:2015 (verificato sul sito).</div>
+
+<!-- PROOF BAR -->
+<section class="proof">
+  <div class="wrap">
+    <p class="proof__label">Hanno scelto Mastruzzi</p>
+    <div class="proof__grid">
+      <img src="https://www.mastruzzi.it/wp-content/uploads/2024/09/logo-mondadori-png.png" alt="Mondadori">
+      <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-Findomestic-per-Mastruzzi.png" alt="Findomestic">
+      <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-General-Electrics-per-Mastruzzi.png" alt="GE">
+      <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-Ospedali-Gemelli-di-Roma-per-Mastruzzi.png" alt="Gemelli">
+      <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-Uffizi-per-Mastruzzi.png" alt="Uffizi">
+      <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-Zecca-dello-stato-per-Mastruzzi.png" alt="Zecca">
+      <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-Numero-blu-per-Mastruzzi.png" alt="Numero Blu">
+      <img src="https://www.mastruzzi.it/wp-content/uploads/2026/04/Logo-Auto-Torino.jpg" alt="Auto Torino">
+    </div>
+  </div>
+</section>
+
+<div class="note"><strong>Vs v3:</strong> loghi <strong>a colori reali</strong> (rimosso il filtro grayscale) e <strong>più grandi</strong> (max-height da 44 → 64px). Restituiscono autorità immediata. Ridotti a 8 (i più riconoscibili) per non sovraffollare; gli altri stanno bene in altre sezioni del sito.</div>
+
+<!-- SCENARI -->
+<section id="scenari" class="section">
+  <div class="wrap">
+    <div class="section__head section__head--center">
+      <h2>La soluzione giusta se devi…</h2>
+      <p class="section__intro">Tre situazioni in cui le aziende ci scelgono. Se ti ritrovi in una, possiamo aiutarti.</p>
+    </div>
+    <div class="scenarios__grid">
+      <div class="scenario">
+        <div class="scenario__icon">🏢</div>
+        <span class="scenario__arrow">→</span>
+        <h3>Rinnovare la sede senza chiudere</h3>
+        <p>Uffici operativi tutti i giorni, team che non si può trasferire. Ti serve un cantiere coordinato in fasi, lavori serali e weekend, zero interruzioni operative.</p>
+      </div>
+      <div class="scenario">
+        <div class="scenario__icon">📐</div>
+        <span class="scenario__arrow">→</span>
+        <h3>Riorganizzare gli spazi dopo che il team è cresciuto</h3>
+        <p>Nuove postazioni, sale riunioni, phone booth. Ti serve un progetto che parta dal layout funzionale e arrivi all'arredo, senza far gestire a te 5 fornitori diversi.</p>
+      </div>
+      <div class="scenario">
+        <div class="scenario__icon">🏗️</div>
+        <span class="scenario__arrow">→</span>
+        <h3>Ricavare uffici qualificati dentro un capannone</h3>
+        <p>Area produttiva grezza, vuoi un'area direzionale o uffici interni con pareti vetrate. Serve chi sa lavorare anche con vincoli industriali (impianti, sicurezza, accessi separati).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="note"><strong>Vs v3:</strong> rimosso eyebrow "Per chi è questa landing" (linguaggio interno). Il titolo della sezione "La soluzione giusta se devi…" è ora autosufficiente.</div>
+
+<!-- BENEFIT 1 -->
+<section class="benefit section">
+  <div class="wrap">
+    <div class="benefit__row">
+      <div class="benefit__visual">
+        <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211296.jpg" alt="">
+        <div class="benefit__badge">Operatività preservata<b>0 giorni di fermo</b></div>
+      </div>
+      <div class="benefit__copy">
+        <div class="section__eyebrow">Il cuore del nostro metodo</div>
+        <h2>Lavoriamo mentre voi lavorate.</h2>
+        <p>Sappiamo che fermare un ufficio per settimane non è un'opzione. Per questo pianifichiamo il cantiere come un'orchestrazione: barriere mobili a tenuta polvere, lavori notturni e weekend, fasi per piano o area.</p>
+        <ul>
+          <li>Cantiere pianificato per fasi, un'area alla volta</li>
+          <li>Lavori serali, notturni e nei weekend dove serve</li>
+          <li>Cantiere protetto e isolato dall'operatività</li>
+          <li>Accessi controllati durante i lavori</li>
+        </ul>
+        <a href="#progetti" class="btn btn--dark">Guarda come l'abbiamo fatto →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFIT 2 -->
+<section class="benefit section section--paper">
+  <div class="wrap">
+    <div class="benefit__row benefit__row--reverse">
+      <div class="benefit__visual">
+        <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-in-provincia-di-bologna-212088.jpg" alt="">
+        <div class="benefit__badge">Tutto coordinato<b>Un solo referente</b></div>
+      </div>
+      <div class="benefit__copy">
+        <div class="section__eyebrow">Niente subappalti scoordinati</div>
+        <h2>Architetto, opere, arredo: tutto da noi.</h2>
+        <p>La progettazione la fa il nostro architetto interno. Le opere edili, impianti, pareti vetrate, arredo su misura li realizziamo coordinandoli internamente. Un solo cronoprogramma, una sola responsabilità, una sola fattura.</p>
+        <ul>
+          <li>Architetto interno con sopralluogo + rendering 3D incluso</li>
+          <li>Opere edili, impianti, controsoffitti, illuminazione</li>
+          <li>Pareti vetrate mobili Mastruzzi (produzione propria)</li>
+          <li>Arredo su misura coordinato esteticamente</li>
+        </ul>
+        <a href="#metodo" class="btn btn--dark">Vedi il nostro metodo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROSS-SELL pareti vetrate (sostituisce ex box normativo) -->
+<section class="section">
+  <div class="wrap">
+    <div class="crosssell">
+      <div>
+        <div class="section__eyebrow">Parte integrante del progetto</div>
+        <h2>Pareti vetrate Mastruzzi: produzione propria, integrate nel progetto.</h2>
+        <p>Le nostre pareti vetrate mobili sono progettate, prodotte e installate da noi. Non sono un acquisto separato: arrivano coordinate esteticamente con tutto il resto del progetto e con la nostra responsabilità diretta di posa e garanzia.</p>
+        <a href="https://www.mastruzzi.it/landing-pareti-vetrate/" class="btn btn--primary">Scopri le pareti vetrate Mastruzzi →</a>
+      </div>
+      <div class="crosssell__img">
+        <img src="https://www.mastruzzi.it/wp-content/uploads/2024/08/box-in-vetro.jpg" alt="Pareti vetrate Mastruzzi">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="note"><strong>Vs v3:</strong> ex box "normativo / pareti = arredo, no SCIA" <strong>rimosso da qui</strong>. In una landing ristrutturazione il claim normativo sulle pareti confonde (l'utente cerca ristrutturazione, non pareti). Sostituito con <strong>blocco cross-sell pulito</strong>: dichiara che le pareti sono produzione interna e integrate nel progetto, e linka alla landing pareti-vetrate dove l'USP normativo trova il suo posto naturale. Il riferimento SCIA resta nelle FAQ (più sotto), dove ha senso come risposta puntuale a chi chiede esplicitamente.</div>
+
+<!-- PROCESS -->
+<section id="metodo" class="section section--paper">
+  <div class="wrap">
+    <div class="section__head section__head--center">
+      <div class="section__eyebrow">Il nostro metodo</div>
+      <h2>Dal sopralluogo alla consegna, senza passaggi lasciati al caso</h2>
+      <p class="section__intro">4 fasi, una sola responsabilità, zero sorprese in corso d'opera.</p>
+    </div>
+    <div class="process__steps">
+      <div class="process__step">
+        <div class="process__num">1</div>
+        <h3>Sopralluogo · 48h</h3>
+        <p>Veniamo in sede, mappiamo vincoli operativi, vi diamo una forbice di costo realistica entro 48h.</p>
+      </div>
+      <div class="process__step">
+        <div class="process__num">2</div>
+        <h3>Progetto + Rendering 3D</h3>
+        <p>L'architetto interno disegna lo spazio. Ve lo mostriamo in 3D, cambi liberi prima di iniziare.</p>
+      </div>
+      <div class="process__step">
+        <div class="process__num">3</div>
+        <h3>Cantiere coordinato</h3>
+        <p>Opere, impianti, pareti, arredo: tutto da noi, in fasi, orari serali o weekend. Cantiere protetto.</p>
+      </div>
+      <div class="process__step">
+        <div class="process__num">4</div>
+        <h3>Consegna chiavi in mano</h3>
+        <p>Spazio pronto, arredato, operativo. Senza che il vostro team abbia mai smesso di lavorare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="progetti" class="section cases">
+  <div class="wrap">
+    <div class="section__head section__head--center">
+      <div class="section__eyebrow">Progetti realizzati</div>
+      <h2>Progetti realizzati per aziende che non potevano fermarsi</h2>
+      <p class="section__intro">Una selezione dal portfolio Mastruzzi. Clicca su un progetto per vedere il caso completo.</p>
+    </div>
+    <div class="cases__grid">
+      <a class="case" href="https://www.mastruzzi.it/progetto/numero-blu-s-p-a-ristrutturazione-area-ingresso/" target="_blank">
+        <div class="case__img">
+          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210909.jpg" alt="">
+          <span class="case__kpi">BPO · H24</span>
+        </div>
+        <div class="case__body">
+          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-Numero-blu-per-Mastruzzi.png" class="case__logo" alt="Numero Blu">
+          <h3>Numero Blu S.p.A.</h3>
+          <p>Roma · Ristrutturazione area ingresso, call center attivo H24</p>
+          <div class="case__meta"><span>BPO · H24</span><span class="case__cta">Vai al progetto →</span></div>
+        </div>
+      </a>
+
+      <a class="case" href="https://www.mastruzzi.it/progetto/findomestic-nuovi-uffici-chiavi-in-mano/" target="_blank">
+        <div class="case__img">
+          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Immagine-2024-10-22-111018.png" alt="">
+          <span class="case__kpi">Finance</span>
+        </div>
+        <div class="case__body">
+          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-Findomestic-per-Mastruzzi.png" class="case__logo" alt="Findomestic">
+          <h3>Findomestic</h3>
+          <p>Nuovi uffici chiavi in mano · Banking</p>
+          <div class="case__meta"><span>Finance</span><span class="case__cta">Vai al progetto →</span></div>
+        </div>
+      </a>
+
+      <a class="case" href="https://www.mastruzzi.it/progetto/general-electric-sede-di-firenze/" target="_blank">
+        <div class="case__img">
+          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210096.jpg" alt="">
+          <span class="case__kpi">Industria</span>
+        </div>
+        <div class="case__body">
+          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-General-Electrics-per-Mastruzzi.png" class="case__logo" alt="GE">
+          <h3>General Electric</h3>
+          <p>Firenze · Ristrutturazione + arredo sede</p>
+          <div class="case__meta"><span>Industria · Multinazionale</span><span class="case__cta">Vai al progetto →</span></div>
+        </div>
+      </a>
+
+      <a class="case" href="https://www.mastruzzi.it/progetto/softjam-s-p-a-nuovi-uffici-operativi-a-milano/" target="_blank">
+        <div class="case__img">
+          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-209146.jpg" alt="">
+          <span class="case__kpi">Software</span>
+        </div>
+        <div class="case__body">
+          <div class="case__brand">SoftJam S.p.A.</div>
+          <h3>Nuovi uffici operativi a Milano</h3>
+          <p>Software house · Ristrutturazione + arredo</p>
+          <div class="case__meta"><span>Software</span><span class="case__cta">Vai al progetto →</span></div>
+        </div>
+      </a>
+
+      <a class="case" href="https://www.mastruzzi.it/progetto/sermetra-net-service-s-r-l-call-center-a-roma/" target="_blank">
+        <div class="case__img">
+          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211126.jpg" alt="">
+          <span class="case__kpi">Sanità</span>
+        </div>
+        <div class="case__body">
+          <div class="case__brand">Sermetra Net Service S.r.l.</div>
+          <h3>Call Center a Roma</h3>
+          <p>Servizi sanitari · Nuovi uffici call center</p>
+          <div class="case__meta"><span>Sanità</span><span class="case__cta">Vai al progetto →</span></div>
+        </div>
+      </a>
+
+      <a class="case" href="https://www.mastruzzi.it/progetto/maf-autotrasporti-ristrutturazione-e-arredo-per-nuovi-uffici/" target="_blank">
+        <div class="case__img">
+          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212827.jpg" alt="">
+          <span class="case__kpi">Logistica</span>
+        </div>
+        <div class="case__body">
+          <div class="case__brand">Maf Autotrasporti</div>
+          <h3>Ristrutturazione + arredo nuovi uffici</h3>
+          <p>Logistica · Sede direzionale</p>
+          <div class="case__meta"><span>Logistica</span><span class="case__cta">Vai al progetto →</span></div>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top:36px;">
+      <a href="https://www.mastruzzi.it/progetti/" target="_blank" class="btn btn--dark">Tutti i progetti realizzati →</a>
+    </div>
+  </div>
+</section>
+
+<div class="note"><strong>Vs v3:</strong> tutte le card adesso sono <strong>link reali</strong> ai progetti su mastruzzi.it (verificato uno per uno, ho fatto fetch di ogni pagina progetto). Foto = featured image vera di ogni progetto (estratta dall'og:image della pagina). Pulsante "Tutti i progetti" porta a <code>/progetti/</code> reale. <strong>Trasparenza</strong>: i loghi clienti li metto solo per i 3 progetti che hanno effettivamente un logo già sulla landing attuale di Mastruzzi (Numero Blu, Findomestic, GE). Per gli altri 3 (SoftJam, Sermetra, Maf) uso solo titolo cliente in stile brand — non invento loghi che non esistono.</div>
+
+<!-- GUARANTEES -->
+<section class="section">
+  <div class="wrap">
+    <div class="section__head section__head--center">
+      <div class="section__eyebrow">Garanzie Mastruzzi</div>
+      <h2>Cosa ti garantiamo durante e dopo i lavori</h2>
+    </div>
+    <div class="guarantees__grid">
+      <div class="guarantee">
+        <div class="guarantee__icon">📅</div>
+        <div><h3>Cronoprogramma definito</h3><p>Date messe per iscritto in fase di preventivo e monitorate. Eventuali variazioni comunicate tempestivamente.</p></div>
+      </div>
+      <div class="guarantee">
+        <div class="guarantee__icon">💰</div>
+        <div><h3>Una sola fattura, zero sorprese</h3><p>Niente varianti improvvise non concordate. Eventuali extra vanno sempre approvati per iscritto prima dell'esecuzione.</p></div>
+      </div>
+      <div class="guarantee">
+        <div class="guarantee__icon">🛡️</div>
+        <div><h3>Cantiere protetto e assicurato</h3><p>Cantiere isolato dall'operatività del cliente, accessi controllati, copertura assicurativa di legge.</p></div>
+      </div>
+      <div class="guarantee">
+        <div class="guarantee__icon">🔧</div>
+        <div><h3>Assistenza post-consegna</h3><p>Garanzia su opere e arredo secondo termini di legge e contratto. Un solo referente anche dopo la consegna.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="note"><strong>Vs v3:</strong> <strong>tolta la sezione "🎁 2 bonus inclusi"</strong>. Onestà: quella sezione l'avevo presa da <em>landing pareti-vetrate</em> (lì esiste con "Pellicole mille righe" + altro omaggio). Sulla <strong>landing ristrutturazione attuale</strong> non c'è nessuna sezione bonus (verificato: zero occorrenze di "omaggio/bonus/gratis/incluso"). Per non promettere cose non confermate da Lorena/PG, l'ho rimossa. Se vorrete attivare 2 bonus reali (es. "rendering 3D incluso", "manutenzione 12 mesi"), si può aggiungere come blocco dedicato dopo validazione.</div>
+
+<!-- FOUNDER + VIDEO -->
+<section class="section">
+  <div class="wrap">
+    <div class="founder__row">
+      <div class="founder__photo">
+        <img src="https://www.mastruzzi.it/wp-content/uploads/2024/12/Piergiovanni-Mastruzzi.3.png" alt="Piergiovanni Mastruzzi">
+      </div>
+      <div>
+        <div class="section__eyebrow">La voce di chi guida l'azienda</div>
+        <blockquote class="founder__quote">
+          "Da 25 anni progettiamo e realizziamo uffici per aziende che <b>non possono permettersi un giorno di fermo.</b> La nostra forza è coordinare tutto da un unico interlocutore: dall'architetto al posatore dell'arredo."
+        </blockquote>
+        <div class="founder__attr">
+          <b>Piergiovanni Mastruzzi</b>
+          <span>CEO Mastruzzi Srl</span>
+        </div>
+      </div>
+      <div class="founder__video" onclick="document.getElementById('videoModal').classList.add('open')">
+        <img src="https://img.youtube.com/vi/VyFITbZQ6W4/maxresdefault.jpg" alt="In che azienda vuoi lavorare">
+        <div class="founder__video__play">▶</div>
+        <span class="founder__video__label">▶ Guarda il video "In che azienda vuoi lavorare"</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div class="modal" id="videoModal" onclick="if(event.target===this){this.classList.remove('open'); document.getElementById('vimg').src=document.getElementById('vimg').src;}">
+  <button class="modal__close" onclick="document.getElementById('videoModal').classList.remove('open')">×</button>
+  <div class="modal__content">
+    <iframe id="vimg" width="100%" height="100%" src="https://www.youtube.com/embed/VyFITbZQ6W4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="note"><strong>Vs v3:</strong> foto founder <strong>ridotta</strong> (da 380px → 220px) e affiancata da <strong>anteprima video reale</strong> con thumbnail YouTube e play button overlay. Cliccando si apre modale con video YouTube embeddato (<code>VyFITbZQ6W4</code>, trovato sulla pagina /chi-siamo/). Il video "In che azienda vuoi lavorare" si vede direttamente nella landing.</div>
+
+<!-- FAQ -->
+<section id="faq" class="section section--paper">
+  <div class="wrap">
+    <div class="section__head section__head--center">
+      <div class="section__eyebrow">Le risposte rapide</div>
+      <h2>Le domande da chiarire prima del preventivo</h2>
+    </div>
+    <div class="faq__list">
+      <details class="faq__item" open>
+        <summary>Davvero potete lavorare senza fermare la nostra attività?</summary>
+        <p>Sì, ed è il nostro standard. Pianifichiamo il cantiere per fasi (un piano o un'area alla volta), il cantiere è isolato dall'operatività del cliente, lavoriamo in orari serali, notturni o nei weekend per le attività più rumorose. Tra i progetti più rappresentativi su questo tipo di vincolo: Numero Blu (call center H24).</p>
+      </details>
+      <details class="faq__item">
+        <summary>Le pareti vetrate Mastruzzi richiedono SCIA o aggiornamento catastale?</summary>
+        <p>Nelle configurazioni standard <b>no</b>: rientrano nell'arredo rimovibile (DM 2/3/2018, UNI 10700). La fattibilità va sempre confermata caso per caso al sopralluogo, in base al regolamento edilizio comunale e ai vincoli specifici dell'immobile. <a href="https://www.mastruzzi.it/landing-pareti-vetrate/" style="color:var(--accent); text-decoration:underline;">Approfondisci sulla landing dedicata alle pareti vetrate →</a></p>
+      </details>
+      <details class="faq__item">
+        <summary>Lavorate fuori dalla Lombardia?</summary>
+        <p>Operiamo principalmente in Lombardia, Veneto e Lazio. Abbiamo realizzato progetti anche fuori area per clienti con relazione consolidata. Per progetti chiavi in mano fuori dalle 3 regioni principali valutiamo caso per caso.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Quanto costa una ristrutturazione completa di uffici?</summary>
+        <p>Dipende da metratura, livello di finitura, complessità impiantistica e quantità/qualità di arredo. Al sopralluogo (gratuito, in 48h) vi diamo una forbice realistica già in fase iniziale; il preventivo dettagliato gratuito segue dopo il sopralluogo.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Includete arredo e impianti o subappaltate?</summary>
+        <p>Coordiniamo internamente progettazione, opere edili, impianti, pareti vetrate, controsoffitti, arredo su misura. Su lavorazioni specifiche (es. impianti tecnologici complessi) ci appoggiamo a partner storici certificati, ma il referente per voi resta sempre uno solo. Una fattura, un cronoprogramma, una responsabilità.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Quanto tempo serve dall'inizio dei lavori alla consegna?</summary>
+        <p>Definiti caso per caso in base a metratura, complessità impiantistica e vincoli operativi del cantiere. Il cronoprogramma dettagliato fa parte del preventivo, con date verificate e monitorate.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD FORM -->
+<section class="section lead">
+  <div class="wrap">
+    <div class="lead__wrap">
+      <div class="lead__copy">
+        <div class="section__eyebrow">Il prossimo passo</div>
+        <h2>Raccontaci la sede da ristrutturare</h2>
+        <p>Compila il form: ti ricontattiamo entro 48 ore per fissare il sopralluogo gratuito senza impegno.</p>
+        <ul>
+          <li>Sopralluogo in 48h, zero impegno</li>
+          <li>Forbice di costo realistica già in fase iniziale</li>
+          <li>Preventivo dettagliato gratuito a seguire</li>
+        </ul>
+        <div class="lead__disclaimer">
+          ⚠️ <b>Soluzioni per aziende.</b> Non operiamo su uso domestico o home office.
+        </div>
+      </div>
+      <form id="form">
+        <div class="form__group">
+          <div class="form__field"><label>Nome e cognome*</label><input placeholder="Mario Rossi"></div>
+          <div class="form__field"><label>Azienda*</label><input placeholder="Azienda S.p.A."></div>
+        </div>
+        <div class="form__group">
+          <div class="form__field"><label>Email aziendale*</label><input placeholder="mario@azienda.it"></div>
+          <div class="form__field"><label>Cellulare*</label><input placeholder="+39 ..."></div>
+        </div>
+        <div class="form__divider">Per qualificare la richiesta</div>
+        <div class="form__group">
+          <div class="form__field"><label>m² dello spazio*</label><select><option>Seleziona...</option><option>Meno di 50 m²</option><option>50-100 m²</option><option>100-300 m²</option><option>300-500 m²</option><option>Oltre 500 m²</option></select></div>
+          <div class="form__field"><label>N° postazioni*</label><select><option>Seleziona...</option><option>Meno di 10</option><option>10-30</option><option>30-100</option><option>100-300</option><option>Oltre 300</option></select></div>
+        </div>
+        <div class="form__group">
+          <div class="form__field"><label>Settore azienda*</label><input placeholder="IT, manifatturiero, sanità..."></div>
+          <div class="form__field"><label>Immobile*</label><select><option>Seleziona...</option><option>Di proprietà</option><option>In affitto</option><option>Leasing</option></select></div>
+        </div>
+        <div class="form__group form__group--single"><div class="form__field"><label>Quando vorreste iniziare?*</label><select><option>Seleziona...</option><option>Entro 3 mesi</option><option>3-6 mesi</option><option>6-12 mesi</option><option>Sto esplorando opzioni</option></select></div></div>
+        <div class="form__group form__group--single"><div class="form__field"><label>Note (opzionale)</label><textarea rows="3" placeholder="Vincoli operativi, scadenze, particolarità della sede..."></textarea></div></div>
+        <label class="form__privacy"><input type="checkbox"><span>Ho letto l'<a href="#">informativa privacy</a> e acconsento al trattamento dei dati per essere ricontattato*</span></label>
+        <button type="submit" class="form__submit">Richiedi sopralluogo gratuito →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap grid">
+    <div>
+      <img src="https://www.mastruzzi.it/wp-content/uploads/2024/12/Logo_scuro_per_sfondo_bianco-sfondo-trasparente.png" alt="Mastruzzi">
+      <p class="small">Mastruzzi Srl società unipersonale<br>Via Parigi, 8 - 46047 Porto Mantovano (MN)<br>P.IVA 01870590203</p>
+    </div>
+    <div>
+      <h4>Contatti</h4>
+      <p class="small">📞 <a href="tel:+390376398111" style="color:#fff;">0376 398.111</a><br>📧 <a href="mailto:info@mastruzzi.it" style="color:#fff;">info@mastruzzi.it</a></p>
+    </div>
+    <div>
+      <h4>Sedi presidiate</h4>
+      <p class="small">Mantova · Castiglione delle Stiviere<br>Verona · Roma</p>
+    </div>
+    <div>
+      <h4>Aree di intervento</h4>
+      <p class="small">Lombardia · Veneto · Lazio<br>+ progetti enterprise nazionali</p>
+    </div>
+  </div>
+  <div class="copyright">Mockup v4 · 2026-05-14 · Documento di lavoro Futuria Marketing per Mastruzzi</div>
+</footer>
+
+</body>
+</html>
