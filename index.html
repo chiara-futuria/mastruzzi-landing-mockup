@@ -211,6 +211,7 @@ body.elementor-page-5846 .mastruzzi-pnrr-asili-banner,
 .founder__photo { position: relative; }
 .founder__photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 8px; }
 .founder__photo:after { content: ""; position: absolute; top: -12px; left: -12px; right: 12px; bottom: 12px; border: 3px solid var(--accent); border-radius: 8px; z-index: -1; }
+.founder__media img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
 .founder__quote { font-size: 19px; line-height: 1.5; color: var(--ink); font-weight: 400; margin-bottom: 18px; }
 .founder__quote b { color: var(--accent-dark); font-weight: 600; }
 .founder__attr b { display: block; font-size: 15px; color: var(--ink); }
@@ -645,24 +646,13 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
           <span>CEO Mastruzzi Srl</span>
         </div>
       </div>
-      <div class="founder__video" onclick="document.getElementById('videoModal').classList.add('open')">
-        <img src="https://img.youtube.com/vi/VyFITbZQ6W4/maxresdefault.jpg" alt="In che azienda vuoi lavorare">
-        <div class="founder__video__play">▶</div>
-        <span class="founder__video__label">▶ Guarda il video "In che azienda vuoi lavorare"</span>
+      <div class="founder__media">
+        <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210096.jpg" alt="Progetto realizzato Mastruzzi — ristrutturazione uffici">
       </div>
     </div>
   </div>
 </section>
 
-<!-- VIDEO MODAL -->
-<div class="modal" id="videoModal" onclick="if(event.target===this){this.classList.remove('open'); document.getElementById('vimg').src=document.getElementById('vimg').src;}">
-  <button class="modal__close" onclick="document.getElementById('videoModal').classList.remove('open')">×</button>
-  <div class="modal__content">
-    <iframe id="vimg" width="100%" height="100%" src="https://www.youtube.com/embed/VyFITbZQ6W4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-</div>
-
-<div class="note"><strong>Vs v3:</strong> foto founder <strong>ridotta</strong> (da 380px → 220px) e affiancata da <strong>anteprima video reale</strong> con thumbnail YouTube e play button overlay. Cliccando si apre modale con video YouTube embeddato (<code>VyFITbZQ6W4</code>, trovato sulla pagina /chi-siamo/). Il video "In che azienda vuoi lavorare" si vede direttamente nella landing.</div>
 
 <!-- FAQ -->
 <section id="faq" class="section section--paper">
