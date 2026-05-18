@@ -41,13 +41,18 @@ img { max-width: 100%; display: block; }
 .section__head--center { text-align: center; max-width: 760px; margin-left: auto; margin-right: auto; margin-bottom: 56px; }
 .section__intro { color: var(--muted); font-size: 17px; margin-top: 14px; max-width: 640px; }
 
-.btn { display: inline-block; padding: 16px 30px; border-radius: 4px; font-weight: 600; font-size: 16px; transition: all 0.2s; cursor: pointer; border: none; text-decoration: none; }
-.btn--primary { background: var(--accent); color: #fff; }
-.btn--primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
-.btn--ghost { background: transparent; color: #fff; border: 2px solid #fff; }
-.btn--ghost:hover { background: #fff; color: var(--ink); }
-.btn--dark { background: var(--ink); color: #fff; }
-.btn--dark:hover { background: var(--accent-dark); }
+/* nascondi il banner globale "PNRR Asili" solo su questa landing */
+body.elementor-page-5846 .mastruzzi-pnrr-asili-banner,
+.mastruzzi-pnrr-asili-banner { display: none !important; }
+
+/* pulsanti: forzati con !important perche il tema/Elementor li sovrascrive */
+.elementor a.btn, a.btn, .btn { display: inline-block !important; padding: 16px 30px !important; border-radius: 4px !important; font-weight: 600 !important; font-size: 16px !important; transition: all 0.2s !important; cursor: pointer !important; text-decoration: none !important; line-height: 1.2 !important; }
+.elementor a.btn--primary, a.btn--primary, .btn--primary { background: var(--accent) !important; color: #fff !important; border: 2px solid var(--accent) !important; }
+.btn--primary:hover { background: var(--accent-dark) !important; border-color: var(--accent-dark) !important; transform: translateY(-1px); }
+.elementor a.btn--ghost, a.btn--ghost, .btn--ghost { background: transparent !important; color: #fff !important; border: 2px solid #fff !important; }
+.btn--ghost:hover { background: #fff !important; color: var(--ink) !important; }
+.elementor a.btn--dark, a.btn--dark, .btn--dark { background: var(--accent-dark) !important; color: #fff !important; border: 2px solid var(--accent-dark) !important; }
+.btn--dark:hover { background: var(--accent) !important; border-color: var(--accent) !important; }
 
 .note { background: #fffaeb; border-left: 4px solid #fcb900; padding: 12px 18px; font-size: 12.5px; color: #78350f; font-style: italic; line-height: 1.55; max-width: 1180px; margin: 0 auto 0; }
 
@@ -457,9 +462,9 @@ footer .copyright { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 36p
           <span class="case__kpi">BPO · H24</span>
         </div>
         <div class="case__body">
-          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-Numero-blu-per-Mastruzzi.png" class="case__logo" alt="Numero Blu">
-          <h3>Numero Blu S.p.A.</h3>
-          <p>Roma · Ristrutturazione area ingresso, call center attivo H24</p>
+          <div class="case__brand">Numero Blu S.p.A.</div>
+          <h3>Ristrutturazione area ingresso</h3>
+          <p>Roma · Call center attivo H24 · Area ingresso</p>
           <div class="case__meta"><span>BPO · H24</span></div>
         </div>
       </div>
@@ -470,9 +475,9 @@ footer .copyright { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 36p
           <span class="case__kpi">Finance</span>
         </div>
         <div class="case__body">
-          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-Findomestic-per-Mastruzzi.png" class="case__logo" alt="Findomestic">
-          <h3>Findomestic</h3>
-          <p>Nuovi uffici chiavi in mano · Banking</p>
+          <div class="case__brand">Findomestic</div>
+          <h3>Nuovi uffici chiavi in mano</h3>
+          <p>Banking · Sede operativa</p>
           <div class="case__meta"><span>Finance</span></div>
         </div>
       </div>
@@ -483,9 +488,9 @@ footer .copyright { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 36p
           <span class="case__kpi">Industria</span>
         </div>
         <div class="case__body">
-          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Logo-General-Electrics-per-Mastruzzi.png" class="case__logo" alt="GE">
-          <h3>General Electric</h3>
-          <p>Firenze · Ristrutturazione + arredo sede</p>
+          <div class="case__brand">General Electric</div>
+          <h3>Ristrutturazione + arredo sede</h3>
+          <p>Firenze · Multinazionale industria</p>
           <div class="case__meta"><span>Industria · Multinazionale</span></div>
         </div>
       </div>
