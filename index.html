@@ -188,19 +188,18 @@ body.elementor-page-5846 .mastruzzi-pnrr-asili-banner,
 .case { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.25s; display: block; color: inherit; }
 /* mini-galleria foto interna al singolo progetto */
 .case__gallery { position: absolute; inset: 0; }
-.case__gtrack { display: flex; height: 100%; transition: transform 0.4s ease; will-change: transform; }
-.case__gtrack img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; }
-.case__garrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.92); color: var(--accent-dark); border: none; cursor: pointer; font-size: 18px; line-height: 1; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s, background 0.2s; z-index: 3; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+.case__gslides { position: absolute; inset: 0; }
+.case__gslide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s ease; }
+.case__gslide.on { opacity: 1; }
+.case__gslide img { width: 100%; height: 100%; object-fit: cover; display: block; transform: none !important; }
+.case__garrow { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.95); color: var(--accent-dark); border: none; cursor: pointer; font-size: 20px; line-height: 1; display: flex; align-items: center; justify-content: center; opacity: 1; transition: background 0.2s, transform 0.2s; z-index: 3; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
 .case__garrow--prev { left: 10px; }
 .case__garrow--next { right: 10px; }
-.case__garrow:hover { background: #fff; }
-.case:hover .case__garrow { opacity: 1; }
+.case__garrow:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
 .case__garrow[disabled] { display: none; }
 .case__gdots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 3; }
-.case__gdots span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.55); transition: background 0.2s; }
+.case__gdots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.55); transition: background 0.2s; }
 .case__gdots span.on { background: #fff; }
-.case:hover .case__gtrack img { transform: none; }
-@media (max-width: 900px) { .case__garrow { opacity: 1; } }
 .case:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
 .case__img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
 .case__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
@@ -538,11 +537,11 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
       <div class="case">
         <div class="case__img">
           <div class="case__gallery">
-            <div class="case__gtrack">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210909.jpg" alt="Numero Blu — progetto Mastruzzi" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210932.jpg" alt="" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210955.jpg" alt="" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210980.jpg" alt="" loading="lazy">
+            <div class="case__gslides">
+              <div class="case__gslide on"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210909.jpg" alt="Numero Blu — progetto Mastruzzi" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210932.jpg" alt="" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210955.jpg" alt="" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210980.jpg" alt="" loading="lazy"></div>
             </div>
             <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
             <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
@@ -561,8 +560,8 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
       <div class="case">
         <div class="case__img">
           <div class="case__gallery">
-            <div class="case__gtrack">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Immagine-2024-10-22-111018.png" alt="Findomestic — progetto Mastruzzi" loading="lazy">
+            <div class="case__gslides">
+              <div class="case__gslide on"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Immagine-2024-10-22-111018.png" alt="Findomestic — progetto Mastruzzi" loading="lazy"></div>
             </div>
             <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
             <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
@@ -581,11 +580,11 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
       <div class="case">
         <div class="case__img">
           <div class="case__gallery">
-            <div class="case__gtrack">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210096.jpg" alt="General Electric Firenze — progetto Mastruzzi" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210118.jpg" alt="" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210138.jpg" alt="" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210166.jpg" alt="" loading="lazy">
+            <div class="case__gslides">
+              <div class="case__gslide on"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210096.jpg" alt="General Electric Firenze — progetto Mastruzzi" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210118.jpg" alt="" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210138.jpg" alt="" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210166.jpg" alt="" loading="lazy"></div>
             </div>
             <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
             <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
@@ -604,11 +603,11 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
       <div class="case">
         <div class="case__img">
           <div class="case__gallery">
-            <div class="case__gtrack">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-209146.jpg" alt="SoftJam Milano — progetto Mastruzzi" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-208752.jpg" alt="" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-208800.jpg" alt="" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-208870.jpg" alt="" loading="lazy">
+            <div class="case__gslides">
+              <div class="case__gslide on"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-209146.jpg" alt="SoftJam Milano — progetto Mastruzzi" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-208752.jpg" alt="" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-208800.jpg" alt="" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-208870.jpg" alt="" loading="lazy"></div>
             </div>
             <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
             <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
@@ -627,11 +626,11 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
       <div class="case">
         <div class="case__img">
           <div class="case__gallery">
-            <div class="case__gtrack">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211126.jpg" alt="Sermetra Roma — progetto Mastruzzi" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211071.jpg" alt="" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211098.jpg" alt="" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211155.jpg" alt="" loading="lazy">
+            <div class="case__gslides">
+              <div class="case__gslide on"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211126.jpg" alt="Sermetra Roma — progetto Mastruzzi" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211071.jpg" alt="" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211098.jpg" alt="" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211155.jpg" alt="" loading="lazy"></div>
             </div>
             <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
             <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
@@ -650,11 +649,11 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
       <div class="case">
         <div class="case__img">
           <div class="case__gallery">
-            <div class="case__gtrack">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212827.jpg" alt="Maf Autotrasporti — progetto Mastruzzi" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212767.jpg" alt="" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212807.jpg" alt="" loading="lazy">
-              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212813.jpg" alt="" loading="lazy">
+            <div class="case__gslides">
+              <div class="case__gslide on"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212827.jpg" alt="Maf Autotrasporti — progetto Mastruzzi" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212767.jpg" alt="" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212807.jpg" alt="" loading="lazy"></div>
+              <div class="case__gslide"><img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212813.jpg" alt="" loading="lazy"></div>
             </div>
             <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
             <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
@@ -680,32 +679,31 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
   function initCaseGalleries(){
     var galleries=document.querySelectorAll('.case__gallery');
     galleries.forEach(function(g){
-      var track=g.querySelector('.case__gtrack');
-      var imgs=track?track.querySelectorAll('img'):[];
+      var slides=g.querySelectorAll('.case__gslide');
       var prev=g.querySelector('.case__garrow--prev');
       var next=g.querySelector('.case__garrow--next');
       var dotsWrap=g.querySelector('.case__gdots');
-      if(!track||imgs.length<=1){
+      if(slides.length<=1){
         if(prev) prev.style.display='none';
         if(next) next.style.display='none';
         if(dotsWrap) dotsWrap.style.display='none';
         return;
       }
       var i=0;
-      for(var k=0;k<imgs.length;k++){
+      for(var k=0;k<slides.length;k++){
         var s=document.createElement('span');
         if(k===0) s.className='on';
         dotsWrap.appendChild(s);
       }
       var dots=dotsWrap.querySelectorAll('span');
       function upd(){
-        track.style.transform='translateX('+(-i*100)+'%)';
+        for(var d=0; d<slides.length; d++){ slides[d].className = d===i ? 'case__gslide on' : 'case__gslide'; }
         prev.disabled = i<=0;
-        next.disabled = i>=imgs.length-1;
-        for(var d=0; d<dots.length; d++){ dots[d].className = d===i ? 'on' : ''; }
+        next.disabled = i>=slides.length-1;
+        for(var n=0; n<dots.length; n++){ dots[n].className = n===i ? 'on' : ''; }
       }
       prev.addEventListener('click',function(e){ e.stopPropagation(); if(i>0){ i--; upd(); } });
-      next.addEventListener('click',function(e){ e.stopPropagation(); if(i<imgs.length-1){ i++; upd(); } });
+      next.addEventListener('click',function(e){ e.stopPropagation(); if(i<slides.length-1){ i++; upd(); } });
       upd();
     });
   }
