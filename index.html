@@ -182,16 +182,25 @@ body.elementor-page-5846 .mastruzzi-pnrr-asili-banner,
 
 /* CASE STUDY */
 .cases { background: var(--paper); }
-.cases__carousel { display: flex; align-items: center; gap: 14px; }
-.cases__viewport { overflow: hidden; flex: 1 1 auto; }
-.cases__track { display: flex; gap: 24px; transition: transform 0.45s cubic-bezier(.4,.0,.2,1); will-change: transform; }
-.cases__track .case { flex: 0 0 calc((100% - 48px) / 3); }
-.cases__arrow { width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: #fff; border: none; cursor: pointer; font-size: 24px; line-height: 1; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background 0.2s, opacity 0.2s, transform 0.2s; box-shadow: 0 6px 16px rgba(1,95,111,0.25); }
-.cases__arrow:hover { background: var(--accent-dark); transform: scale(1.06); }
-.cases__arrow:disabled { opacity: 0.35; cursor: default; transform: none; }
-@media (max-width: 1024px) { .cases__track .case { flex: 0 0 calc((100% - 24px) / 2); } }
-@media (max-width: 680px) { .cases__track .case { flex: 0 0 100%; } .cases__arrow { width: 40px; height: 40px; font-size: 20px; } .cases__carousel { gap: 8px; } }
+.cases__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 1024px) { .cases__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 680px) { .cases__grid { grid-template-columns: 1fr; } }
 .case { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.25s; display: block; color: inherit; }
+/* mini-galleria foto interna al singolo progetto */
+.case__gallery { position: absolute; inset: 0; }
+.case__gtrack { display: flex; height: 100%; transition: transform 0.4s ease; will-change: transform; }
+.case__gtrack img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; }
+.case__garrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.92); color: var(--accent-dark); border: none; cursor: pointer; font-size: 18px; line-height: 1; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s, background 0.2s; z-index: 3; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+.case__garrow--prev { left: 10px; }
+.case__garrow--next { right: 10px; }
+.case__garrow:hover { background: #fff; }
+.case:hover .case__garrow { opacity: 1; }
+.case__garrow[disabled] { display: none; }
+.case__gdots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 3; }
+.case__gdots span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.55); transition: background 0.2s; }
+.case__gdots span.on { background: #fff; }
+.case:hover .case__gtrack img { transform: none; }
+@media (max-width: 900px) { .case__garrow { opacity: 1; } }
 .case:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
 .case__img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
 .case__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
@@ -525,13 +534,20 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
       <h2>Progetti realizzati per aziende in piena attività</h2>
       <p class="section__intro">Una selezione dal portfolio Mastruzzi. Scorri la galleria con le frecce.</p>
     </div>
-    <div class="cases__carousel">
-      <button class="cases__arrow cases__arrow--prev" type="button" aria-label="Progetto precedente">&lsaquo;</button>
-      <div class="cases__viewport">
-        <div class="cases__track" id="casesTrack">
+    <div class="cases__grid">
       <div class="case">
         <div class="case__img">
-          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210909.jpg" alt="">
+          <div class="case__gallery">
+            <div class="case__gtrack">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210909.jpg" alt="Numero Blu — progetto Mastruzzi" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210932.jpg" alt="" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210955.jpg" alt="" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210980.jpg" alt="" loading="lazy">
+            </div>
+            <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
+            <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
+            <div class="case__gdots"></div>
+          </div>
           <span class="case__kpi">BPO · H24</span>
         </div>
         <div class="case__body">
@@ -544,7 +560,14 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
 
       <div class="case">
         <div class="case__img">
-          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Immagine-2024-10-22-111018.png" alt="">
+          <div class="case__gallery">
+            <div class="case__gtrack">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/Immagine-2024-10-22-111018.png" alt="Findomestic — progetto Mastruzzi" loading="lazy">
+            </div>
+            <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
+            <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
+            <div class="case__gdots"></div>
+          </div>
           <span class="case__kpi">Finance</span>
         </div>
         <div class="case__body">
@@ -557,7 +580,17 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
 
       <div class="case">
         <div class="case__img">
-          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210096.jpg" alt="">
+          <div class="case__gallery">
+            <div class="case__gtrack">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210096.jpg" alt="General Electric Firenze — progetto Mastruzzi" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210118.jpg" alt="" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210138.jpg" alt="" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-la-general-electric-firenze-210166.jpg" alt="" loading="lazy">
+            </div>
+            <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
+            <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
+            <div class="case__gdots"></div>
+          </div>
           <span class="case__kpi">Industria</span>
         </div>
         <div class="case__body">
@@ -570,7 +603,17 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
 
       <div class="case">
         <div class="case__img">
-          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-209146.jpg" alt="">
+          <div class="case__gallery">
+            <div class="case__gtrack">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-209146.jpg" alt="SoftJam Milano — progetto Mastruzzi" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-208752.jpg" alt="" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-208800.jpg" alt="" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuovi-uffici-operativi-a-milano-208870.jpg" alt="" loading="lazy">
+            </div>
+            <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
+            <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
+            <div class="case__gdots"></div>
+          </div>
           <span class="case__kpi">Software</span>
         </div>
         <div class="case__body">
@@ -583,7 +626,17 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
 
       <div class="case">
         <div class="case__img">
-          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211126.jpg" alt="">
+          <div class="case__gallery">
+            <div class="case__gtrack">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211126.jpg" alt="Sermetra Roma — progetto Mastruzzi" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211071.jpg" alt="" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211098.jpg" alt="" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-per-realizzazione-nuovi-uffici-call-center-presso-roma-211155.jpg" alt="" loading="lazy">
+            </div>
+            <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
+            <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
+            <div class="case__gdots"></div>
+          </div>
           <span class="case__kpi">Sanità</span>
         </div>
         <div class="case__body">
@@ -596,7 +649,17 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
 
       <div class="case">
         <div class="case__img">
-          <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212827.jpg" alt="">
+          <div class="case__gallery">
+            <div class="case__gtrack">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212827.jpg" alt="Maf Autotrasporti — progetto Mastruzzi" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212767.jpg" alt="" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212807.jpg" alt="" loading="lazy">
+              <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-e-arredo-per-nuova-sede-uffici-212813.jpg" alt="" loading="lazy">
+            </div>
+            <button class="case__garrow case__garrow--prev" type="button" aria-label="Foto precedente">&lsaquo;</button>
+            <button class="case__garrow case__garrow--next" type="button" aria-label="Foto successiva">&rsaquo;</button>
+            <div class="case__gdots"></div>
+          </div>
           <span class="case__kpi">Logistica</span>
         </div>
         <div class="case__body">
@@ -606,9 +669,6 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
           <div class="case__meta"><span>Logistica</span></div>
         </div>
       </div>
-        </div>
-      </div>
-      <button class="cases__arrow cases__arrow--next" type="button" aria-label="Progetto successivo">&rsaquo;</button>
     </div>
     <div style="text-align:center; margin-top:36px;">
       <a href="#form" class="btn btn--primary">Raccontaci il tuo progetto →</a>
@@ -617,44 +677,42 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
 </section>
 <script>
 (function(){
-  function initCasesCarousel(){
-    var track=document.getElementById('casesTrack');
-    if(!track) return;
-    var prev=document.querySelector('.cases__arrow--prev');
-    var next=document.querySelector('.cases__arrow--next');
-    var cards=track.querySelectorAll('.case');
-    if(!cards.length) return;
-    var index=0;
-    function step(){
-      var c=cards[0];
-      var style=getComputedStyle(track);
-      var gap=parseFloat(style.columnGap||style.gap||'24')||24;
-      return c.getBoundingClientRect().width + gap;
-    }
-    function visible(){
-      var vw=track.parentElement.getBoundingClientRect().width;
-      return Math.max(1, Math.round(vw/step()));
-    }
-    function maxIndex(){ return Math.max(0, cards.length - visible()); }
-    function update(){
-      if(index>maxIndex()) index=maxIndex();
-      if(index<0) index=0;
-      track.style.transform='translateX('+(-index*step())+'px)';
-      if(prev) prev.disabled = index<=0;
-      if(next) next.disabled = index>=maxIndex();
-    }
-    if(prev) prev.addEventListener('click',function(){ index--; update(); });
-    if(next) next.addEventListener('click',function(){ index++; update(); });
-    var rt;
-    window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(update,150); });
-    update();
+  function initCaseGalleries(){
+    var galleries=document.querySelectorAll('.case__gallery');
+    galleries.forEach(function(g){
+      var track=g.querySelector('.case__gtrack');
+      var imgs=track?track.querySelectorAll('img'):[];
+      var prev=g.querySelector('.case__garrow--prev');
+      var next=g.querySelector('.case__garrow--next');
+      var dotsWrap=g.querySelector('.case__gdots');
+      if(!track||imgs.length<=1){
+        if(prev) prev.style.display='none';
+        if(next) next.style.display='none';
+        if(dotsWrap) dotsWrap.style.display='none';
+        return;
+      }
+      var i=0;
+      for(var k=0;k<imgs.length;k++){
+        var s=document.createElement('span');
+        if(k===0) s.className='on';
+        dotsWrap.appendChild(s);
+      }
+      var dots=dotsWrap.querySelectorAll('span');
+      function upd(){
+        track.style.transform='translateX('+(-i*100)+'%)';
+        prev.disabled = i<=0;
+        next.disabled = i>=imgs.length-1;
+        for(var d=0; d<dots.length; d++){ dots[d].className = d===i ? 'on' : ''; }
+      }
+      prev.addEventListener('click',function(e){ e.stopPropagation(); if(i>0){ i--; upd(); } });
+      next.addEventListener('click',function(e){ e.stopPropagation(); if(i<imgs.length-1){ i++; upd(); } });
+      upd();
+    });
   }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initCasesCarousel);
-  else initCasesCarousel();
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initCaseGalleries);
+  else initCaseGalleries();
 })();
 </script>
-
-<div class="note"><strong>Vs v3:</strong> tutte le card adesso sono <strong>link reali</strong> ai progetti su mastruzzi.it (verificato uno per uno, ho fatto fetch di ogni pagina progetto). Foto = featured image vera di ogni progetto (estratta dall'og:image della pagina). Pulsante "Tutti i progetti" porta a <code>/progetti/</code> reale. <strong>Trasparenza</strong>: i loghi clienti li metto solo per i 3 progetti che hanno effettivamente un logo già sulla landing attuale di Mastruzzi (Numero Blu, Findomestic, GE). Per gli altri 3 (SoftJam, Sermetra, Maf) uso solo titolo cliente in stile brand — non invento loghi che non esistono.</div>
 
 <!-- GUARANTEES -->
 <section class="section">
