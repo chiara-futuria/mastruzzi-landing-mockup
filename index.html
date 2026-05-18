@@ -182,7 +182,15 @@ body.elementor-page-5846 .mastruzzi-pnrr-asili-banner,
 
 /* CASE STUDY */
 .cases { background: var(--paper); }
-.cases__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cases__carousel { display: flex; align-items: center; gap: 14px; }
+.cases__viewport { overflow: hidden; flex: 1 1 auto; }
+.cases__track { display: flex; gap: 24px; transition: transform 0.45s cubic-bezier(.4,.0,.2,1); will-change: transform; }
+.cases__track .case { flex: 0 0 calc((100% - 48px) / 3); }
+.cases__arrow { width: 46px; height: 46px; border-radius: 50%; background: var(--accent); color: #fff; border: none; cursor: pointer; font-size: 24px; line-height: 1; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background 0.2s, opacity 0.2s, transform 0.2s; box-shadow: 0 6px 16px rgba(1,95,111,0.25); }
+.cases__arrow:hover { background: var(--accent-dark); transform: scale(1.06); }
+.cases__arrow:disabled { opacity: 0.35; cursor: default; transform: none; }
+@media (max-width: 1024px) { .cases__track .case { flex: 0 0 calc((100% - 24px) / 2); } }
+@media (max-width: 680px) { .cases__track .case { flex: 0 0 100%; } .cases__arrow { width: 40px; height: 40px; font-size: 20px; } .cases__carousel { gap: 8px; } }
 .case { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.25s; display: block; color: inherit; }
 .case:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
 .case__img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
@@ -196,7 +204,6 @@ body.elementor-page-5846 .mastruzzi-pnrr-asili-banner,
 .case__body p { font-size: 15.5px; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
 .case__meta { display: flex; gap: 14px; font-size: 12px; color: var(--text); padding-top: 14px; border-top: 1px solid var(--line); align-items: center; justify-content: space-between; }
 .case__cta { color: var(--accent); font-weight: 600; font-size: 13px; }
-@media (max-width: 900px) { .cases__grid { grid-template-columns: 1fr; } }
 
 /* GUARANTEES */
 .guarantees__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -516,9 +523,12 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
     <div class="section__head section__head--center">
       <div class="section__eyebrow">Progetti realizzati</div>
       <h2>Progetti realizzati per aziende in piena attività</h2>
-      <p class="section__intro">Una selezione dal portfolio Mastruzzi. Clicca su un progetto per vedere il caso completo.</p>
+      <p class="section__intro">Una selezione dal portfolio Mastruzzi. Scorri la galleria con le frecce.</p>
     </div>
-    <div class="cases__grid">
+    <div class="cases__carousel">
+      <button class="cases__arrow cases__arrow--prev" type="button" aria-label="Progetto precedente">&lsaquo;</button>
+      <div class="cases__viewport">
+        <div class="cases__track" id="casesTrack">
       <div class="case">
         <div class="case__img">
           <img src="https://www.mastruzzi.it/wp-content/uploads/2024/10/ristrutturazione-numero-blu-service-spa-roma-210909.jpg" alt="">
@@ -596,12 +606,53 @@ footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6;
           <div class="case__meta"><span>Logistica</span></div>
         </div>
       </div>
+        </div>
+      </div>
+      <button class="cases__arrow cases__arrow--next" type="button" aria-label="Progetto successivo">&rsaquo;</button>
     </div>
     <div style="text-align:center; margin-top:36px;">
       <a href="#form" class="btn btn--primary">Raccontaci il tuo progetto →</a>
     </div>
   </div>
 </section>
+<script>
+(function(){
+  function initCasesCarousel(){
+    var track=document.getElementById('casesTrack');
+    if(!track) return;
+    var prev=document.querySelector('.cases__arrow--prev');
+    var next=document.querySelector('.cases__arrow--next');
+    var cards=track.querySelectorAll('.case');
+    if(!cards.length) return;
+    var index=0;
+    function step(){
+      var c=cards[0];
+      var style=getComputedStyle(track);
+      var gap=parseFloat(style.columnGap||style.gap||'24')||24;
+      return c.getBoundingClientRect().width + gap;
+    }
+    function visible(){
+      var vw=track.parentElement.getBoundingClientRect().width;
+      return Math.max(1, Math.round(vw/step()));
+    }
+    function maxIndex(){ return Math.max(0, cards.length - visible()); }
+    function update(){
+      if(index>maxIndex()) index=maxIndex();
+      if(index<0) index=0;
+      track.style.transform='translateX('+(-index*step())+'px)';
+      if(prev) prev.disabled = index<=0;
+      if(next) next.disabled = index>=maxIndex();
+    }
+    if(prev) prev.addEventListener('click',function(){ index--; update(); });
+    if(next) next.addEventListener('click',function(){ index++; update(); });
+    var rt;
+    window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(update,150); });
+    update();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initCasesCarousel);
+  else initCasesCarousel();
+})();
+</script>
 
 <div class="note"><strong>Vs v3:</strong> tutte le card adesso sono <strong>link reali</strong> ai progetti su mastruzzi.it (verificato uno per uno, ho fatto fetch di ogni pagina progetto). Foto = featured image vera di ogni progetto (estratta dall'og:image della pagina). Pulsante "Tutti i progetti" porta a <code>/progetti/</code> reale. <strong>Trasparenza</strong>: i loghi clienti li metto solo per i 3 progetti che hanno effettivamente un logo già sulla landing attuale di Mastruzzi (Numero Blu, Findomestic, GE). Per gli altri 3 (SoftJam, Sermetra, Maf) uso solo titolo cliente in stile brand — non invento loghi che non esistono.</div>
 
