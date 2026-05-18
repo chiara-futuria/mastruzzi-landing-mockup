@@ -64,7 +64,7 @@ body.elementor-page-5846 .mastruzzi-pnrr-asili-banner,
 /* NAV */
 .nav { background: #fff; border-bottom: 1px solid var(--line); padding: 22px 0; }
 .nav__row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.nav__logo { height: 12px; }
+.elementor img.nav__logo, .nav img.nav__logo, img.nav__logo, .nav__logo { height: 12px !important; width: auto !important; max-width: none !important; }
 .nav__links { display: flex; align-items: center; gap: 24px; font-size: 16px; color: var(--ink); font-weight: 500; }
 .nav__links a:hover { color: var(--accent); }
 .nav__tel { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); font-weight: 600; }
@@ -257,13 +257,8 @@ body.elementor-page-5846 .mastruzzi-pnrr-asili-banner,
 @media (max-width: 900px) { .lead__wrap { grid-template-columns: 1fr; padding: 30px; } .form__group { grid-template-columns: 1fr; } }
 
 /* FOOTER */
-footer { background: var(--ink); color: #9a9da0; padding: 60px 0 30px; }
-footer .grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; font-size: 14px; }
-footer img { height: 36px; filter: brightness(0) invert(1); opacity: 0.92; margin-bottom: 16px; }
-footer h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.04em; }
-footer .small { font-size: 12px; line-height: 1.6; }
-footer .copyright { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 36px; padding-top: 22px; text-align: center; font-size: 12px; }
-@media (max-width: 800px) { footer .grid { grid-template-columns: 1fr 1fr; } }
+footer { background: var(--ink); color: #9a9da0; padding: 28px 0; }
+footer .footer__legal { text-align: center; font-size: 12.5px; line-height: 1.6; color: #9a9da0; margin: 0 auto; max-width: 900px; }
 
 /* VIDEO MODAL */
 .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
@@ -742,25 +737,9 @@ footer .copyright { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 36p
 
 <!-- FOOTER -->
 <footer>
-  <div class="wrap grid">
-    <div>
-      <img src="https://www.mastruzzi.it/wp-content/uploads/2024/12/Logo_scuro_per_sfondo_bianco-sfondo-trasparente.png" alt="Mastruzzi">
-      <p class="small">Mastruzzi Srl società unipersonale<br>Via Parigi, 8 - 46047 Porto Mantovano (MN)<br>P.IVA 01870590203</p>
-    </div>
-    <div>
-      <h4>Contatti</h4>
-      <p class="small">📞 <a href="tel:+390376398111" style="color:#fff;">0376 398.111</a><br>📧 <a href="mailto:info@mastruzzi.it" style="color:#fff;">info@mastruzzi.it</a></p>
-    </div>
-    <div>
-      <h4>Sedi presidiate</h4>
-      <p class="small">Mantova · Castiglione delle Stiviere<br>Verona · Roma</p>
-    </div>
-    <div>
-      <h4>Aree di intervento</h4>
-      <p class="small">Lombardia · Veneto · Lazio<br>+ progetti enterprise nazionali</p>
-    </div>
+  <div class="wrap">
+    <p class="footer__legal">Copyright © 2026 Mastruzzi Srl società unipersonale. Via Parigi, 8 - 46047 Porto Mantovano (Mn) - P.Iva e C.F. 01870590203. Registro delle imprese di Mantova n° 01870590203. Numero REA MN-205078. Capitale sociale: euro 55.000 i.v.</p>
   </div>
-  <div class="copyright">Mockup v4 · 2026-05-14 · Documento di lavoro Futuria Marketing per Mastruzzi</div>
 </footer>
 
 </body>
